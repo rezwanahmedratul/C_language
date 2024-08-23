@@ -3,7 +3,6 @@
 int main()
 {
     float b,h,a; // b=base, h=height, a=area
-   
     
     printf("Enter the Base of the Triangle\n");
     scanf("%f",&b);
