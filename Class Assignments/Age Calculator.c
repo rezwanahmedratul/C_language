@@ -43,7 +43,7 @@ int main()
             days=((y*365)+(m*30)+d)-((Y*365)+(M*30)+D);
             YY=days/365;
             MM=(days%365)/30;
-            DD=(days&365)%30;
+            DD=(days%365)%30;
        
             printf("\nYour age is %d Years %d Months and %d Days.\n",YY,MM,DD);
          }
