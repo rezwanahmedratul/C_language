@@ -16,9 +16,9 @@ int main()
             count++;
    
     if(count==length)
-        printf("Yes, This word is a polynomial.\n");
+        printf("Yes, This word is a Palindrome.\n");
     else 
-        printf("No, This word isn't a polynomial.\n");
+        printf("No, This word isn't a Palindrome.\n");
    
     return 0;
 }
