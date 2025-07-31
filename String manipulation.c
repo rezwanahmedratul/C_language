@@ -33,10 +33,10 @@ char* Concatenation(char str1[], char str2[]) {
 }
 
 int Indexing(char str[], char pattern[]) {
-    int len = strlength(str), pat = strlength(pattern);
-    for (int i = 0; i <= len - pat; i++) {
+    int len = strlength(str), pat = strlength(pattern), i, j;
+    for (i = 0; i <= len - pat; i++) {
         int found = 1;
-        for (int j = 0; j < pat; j++) {
+        for (j = 0; j < pat; j++) {
             if (str[i + j] != pattern[j]) {
                 found = 0;
                 break;
