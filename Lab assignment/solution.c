@@ -59,7 +59,7 @@ void main()
             scanf("%d",&Item);
             Loc=SearchUSL(Start,Item);
             if(Loc==NULL) printf("Item is not in the list.\n");
-            else printf("Item found at location : %d.\n",Loc);
+            else printf("Item found at location : %d.  Item is %d\n",Loc,Loc->info);
             break;
 
         case '6':
@@ -67,7 +67,7 @@ void main()
             scanf("%d",&Item);
             Loc=SearchUSL(Start,Item);
             if(Loc==NULL) printf("Item is not in the list.\n");
-            else printf("Item found at location : %d.\n",Loc);
+            else printf("Item found at location : %d.  Item is %d\n",Loc,Loc->info);
             break;
         case '0':
             exit(0);
