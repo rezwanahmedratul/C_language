@@ -33,7 +33,7 @@ int main() {
         printf("4. Sort the Linked List\n");
         printf("5. Search an Item from Linked List (Unsorted)\n");
         printf("6. Search an Item from Linked List (Sorted)\n");
-        printf("7. Insert an Item into the Linked List\n");
+        printf("7. Insert an Item into the Sorted Linked List\n");
         printf("8. Delete an Item from the Linked List\n");
         printf("0. Exit\nEnter your option : ");
         option = getche();
