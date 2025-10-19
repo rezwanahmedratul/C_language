@@ -18,68 +18,46 @@ char *SubString(char *str,int st, int nofc)
     }
     else
     {
-        while(nofc>0)
-        {
+        for(i=0;i<nofc;i++)
             sub[i] = str[st+i];
-            i++;
-            nofc--;
-        }
-
-        sub[i] = '\0';
     }
+    sub[i] = '\0';
     return sub;
 }
 
-char *Concate(char *str1,char *str2)
+int Indexing(char *T,char *P)
 {
-    int i,l1,l2;
-    l1 = Strlen(str1);  l2 = Strlen(str2);
-    char *cont = (char *)malloc(l1 + l2);
-    for(i=0;i<l1;i++)
-        cont[i] = str1[i];
-    for(i=0;i<l2;i++)
-        cont[l1+i] = str2[i];
-    cont[l1+l2] = '\0';
-    return cont;
-}
-int Index(char *str,char *pat)
-{
-    int R = Strlen(pat);
-    int S = Strlen(str);
-    int L, K = 0, Max = S - R + 1;
-    while(K < Max)
+    int L, K, Max, R, S, Index = -1;
+    R = Strlen(P);    S = Strlen(T);
+    K = 0; Max = S - R;
+    while(K<=Max)
     {
-        for(L = 0; L < R; L++)
-        {
-            if(pat[L] != str[K + L])
-                goto S5;
-        }
-        return K;
-        S5  : K= K +1;
+        for(L=0;L<R;L++)
+            if(P[L] != T[K+L]) goto S5;
+        Index = K; return Index;
+        S5: K = K + 1;
     }
-    return -1;
+    return Index;
 }
-char *Insert(char *str,int in,char *pat)
+
+char *Concatenation(char *st1,char *st2)
 {
-
-
+    int i,j,L1 = Strlen(st1);
+    int L2 = Strlen(st2);
+    char *con = malloc(L1+L2);
+    for(i=0;i<L1;i++)
+        con[i] = st1[i];
+    for(i=0;i<L2;i++)
+        con[L1+i] = st2[i];
+    con[L1+i] = '\0';
+    return con;
 }
-char *Replace(char *str,char *pat,char *tar)
-{
-
-}
-
-char *Delete(char *str,int st, int nofc)
-{
-
-}
-
 
 void main()
 {
     char op;
     int st, nofc, Loc;
-    char Str1[100],Str2[100],*Sub;
+    char Str1[10],Str2[100];
     while(1)
     {
         printf("\n1. Input a String\n");
@@ -87,15 +65,14 @@ void main()
         printf("3. Display the String\n");
         printf("4. Sub-string of the String\n");
         printf("5. Concatenation of two String\n");
-        printf("6. Indexing of a Pattern\n");
-        printf("7. Replace of a String by another String\n");
-        printf("8. Insertion of a String by a Pattern\n");
-        printf("9. Delete of a String\n");
-        printf("A. Replace All of a String\n");
-        printf("B. Delete All of a String\n");
-
+        printf("6. Indexing of a Sub String\n");
+        printf("7. Insertion of a String\n");
+        printf("8. Deletion of a Sub String\n");
+        printf("9. Replacing of a Sub String\n");
+        printf("A. Delete All Pattern\n");
+        printf("B. Replace All Pattern\n");
         printf("0. Exit\nEnter your option : ");
-        op = getche();
+        op = toupper(getche());
         switch(op)
         {
         case '1':
@@ -110,28 +87,38 @@ void main()
             puts(Str1);
             break;
         case '4':
-            printf("\nEnter starting : ");
+            printf("\nEnter the starting : ");
             scanf("%d",&st);
-            printf("\nEnter No of Character : ");
+            printf("\nEnter the No of Character : ");
             scanf("%d",&nofc);
-            Sub = SubString(Str1,st,nofc);
-            printf("\nThe Substring is\n");
-            puts(Sub);
+            printf("\nSub String is\n");
+            puts(SubString(Str1,st,nofc));
             break;
         case '5':
             printf("\nEnter second string\n");
             gets(Str2);
-            printf("\nThe Concatenation of Strings is\n");
-            puts(Concate(Str1,Str2));
+            printf("\nConcatenation String is\n");
+            puts(Concatenation(Str1,Str2));
             break;
         case '6':
-            printf("\nEnter Pattern string\n");
+            printf("\nEnter Pattern String\n");
             gets(Str2);
-            Loc = Index(Str1,Str2);
-            if(Loc >= 0)
-                printf("\nPattern Found in Location %d\n",Loc);
-            else
+            Loc = Indexing(Str1,Str2);
+            if(Loc == -1)
                 printf("\nPattern Not Found\n");
+            else
+                printf("\nPattern Found in Location %d\n",Loc);
+            break;
+        case '7':
+            printf("\nEnter Pattern \n");
+            gets(Str2);
+            printf("\nEnter Location : ");
+            scanf("%d",&Loc);
+            printf("\nThe Inserting String is\n");
+            puts(Insertion(Str1,Loc,Str2));
+            break;
+        case 'A':
+            printf("\nGorar Dim\n");
             break;
         case '0':
             exit(0);
