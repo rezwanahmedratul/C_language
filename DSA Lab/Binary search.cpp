@@ -2,6 +2,7 @@
 #include<vector>
 using namespace std;
 
+// itteratie binary search
 int bs(vector<int> &a, int tar) {
     int st = 0, end = a.size() - 1;
     
@@ -16,6 +17,7 @@ int bs(vector<int> &a, int tar) {
     return -1;
 }
 
+// recursive binary search
 int rbs(vector<int> &a, int st, int end, int tar) {
     if (st > end) return -1;
 
